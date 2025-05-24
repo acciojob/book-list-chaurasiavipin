@@ -7,3 +7,15 @@ h1{
 	background-color:blue;
 	color:white;
 }
+.table {
+  width: 80%;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+.delete {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
