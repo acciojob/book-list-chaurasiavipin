@@ -1,44 +1,36 @@
-//your JS code here. If required.
-let submitbtm=document.getElementById("submit");
-let booklist=document.getElementById("book-list");
-  submitbtm.addEventListener("click", function(){
-	  let Title=document.getElementById("title").value.trim();
-	    let Author=document.getElementById("author").value.trim();
-	    let ISBN=document.getElementById("isbn").value.trim();
+const submitBtn = document.getElementById("submit");
+const bookList = document.getElementById("book-list");
 
-	  if(Title=== ""||Author===""||ISBN===""){
-		  alert("Plese fill the blow");
-		  return
-	  }
+submitBtn.addEventListener("click", function () {
+  const title = document.getElementById("title").value.trim();
+  const author = document.getElementById("author").value.trim();
+  const isbn = document.getElementById("isbn").value.trim();
 
-let row=document.createElement("tr");
-	  row.innerHTML='
-		  <td>${Title}</td>
-							  <td>${Author}</td>
-							  <td>${ISBN}</td>
-							  <td><button class="delete">Clear</button></td>
-		  
-	  ';
-							 
-	  booklist.apendChild(row);
-//agar sara like title author aur isbn ko fill kr diya gya to use khali kr do new line ke liye
+  if (title === "" || author === "" || isbn === "") {
+    alert("Please fill all fields.");
+    return;
+  }
+
+  const row = document.createElement("tr");
+  row.innerHTML = `
+    <td>${title}</td>
+    <td>${author}</td>
+    <td>${isbn}</td>
+    <td><button class="delete">Clear</button></td>
+  `;
+
+  bookList.appendChild(row);
+
+  // Clear input fields
   document.getElementById("title").value = "";
   document.getElementById("author").value = "";
   document.getElementById("isbn").value = "";
-  });
-booklist.addEventListener("click", function(e){
-	if(e.target.classList.contains("delet")){
-		let row=e.target.closest("tr");
-		row.remove();
-	}
-	
-})
+});
 
-
-
-
-
-
-
-
-
+// Event delegation for delete buttons
+bookList.addEventListener("click", function (e) {
+  if (e.target.classList.contains("delete")) {
+    const row = e.target.closest("tr");
+    row.remove();
+  }
+});
