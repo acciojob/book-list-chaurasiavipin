@@ -12,6 +12,11 @@ h1{
   margin: 0 auto;
   border-collapse: collapse;
 }
+.table th, .table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
 .delete {
   background-color: #e74c3c;
   color: white;
